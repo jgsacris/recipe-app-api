@@ -28,14 +28,14 @@ class PublicUserApiTests(TestCase):
         '''Test the creation of a new user is successful'''
         payload = {
             'email': 'test@example.com',
-            'password': 'testpass123',
+            'password': 'lepass3738379',
             'name': 'Test Name'
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         user = get_user_model().objects.get(email=payload['email'])
-        print('*** user', user.check_password(payload['password']))
+        print('*** user', payload['password'])
         self.assertTrue(user.check_password(payload['password']))
         self.assertNotIn('password', res.data)
 
