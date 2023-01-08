@@ -25,7 +25,7 @@ class UserManager(BaseUserManager):
 
         return user
 
-     # overrides a default method used by Django in several places
+    # overrides a default method used by Django in several places
     def create_superuser(self, email, password):
         '''Create and return new superuser'''
         user = self.create_user(email, password)
